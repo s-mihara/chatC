@@ -61,6 +61,7 @@ function showPage(req, res) {
 			require('./chatRoom.js');
 			data = fs.readFileSync('./chatRoom.ejs', 'UTF-8');
 			res.writeHead(200, {'Content-Type': 'text/html; charset=UTF-8'});
+			data = ejs.render(data,{userName:query.userName});
 			res.end(data);
 			break;
 
